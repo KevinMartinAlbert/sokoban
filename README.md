@@ -14,3 +14,7 @@ I wanted to add some new gameplay elements to the base game :
 - Depending on the type, the Boxes can either be set on fire or electrified.
 - Buttons can have requirements : only valid if pressed on by a burning box or an electrified box.
 - The game uses a sprite sheet system so a level in world N will use spritesheet N.
+
+## Class diagram
+
+![diagramme de classe](assets/readme/class_diagram.png)

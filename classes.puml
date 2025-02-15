@@ -4,7 +4,7 @@ class Game {
     canvas: DOMElement
     ctx: DOMElement
     tileSize: Integer
-    world: Null
+    world: World | null
     levelIndex: Integer
     worldIndex: Integer
     spriteSheet: Image
@@ -19,17 +19,19 @@ class Game {
     checkVictory()
     nextLevel()
 }
+
 class World {
     name: Integer
-    levels: Integer
-    spriteSheet: String
+    levels: Object
+    spriteSheet: Image
     loadSpritesheet()
 }
+
 class Level {
-    tiles: Array
-    boxes: Array
-    player: Object
-    buttons: Array
+    tiles: Array<Tile>
+    boxes: Array<Box>
+    player: Player
+    buttons: Array<Button>
     spriteSheet: Image
     update()
     isNearFire()
@@ -43,21 +45,23 @@ class Level {
 class Tile {
     type: String
     spriteSheet: Image
-    spriteCoordinates: Object
+    spriteCoordinates: {x: Integer, y: Integer}
     draw()
 }
+
 class Button {
     x: Integer
     y: Integer
     requiredType: String
     isPressed()
 }
+
 class Box {
     x: Integer
     y: Integer
     type: String
     spriteSheet: Image
-    spriteSheetCoordinates: Object
+    spriteSheetCoordinates: {x: Integer, y: Integer}
     move()
     updateState()
     draw()
@@ -67,17 +71,20 @@ class Player {
     x: Integer
     y: Integer
     spriteSheet: Image
-    spriteSheetCoordinates: Object
+    spriteSheetCoordinates: {x: Integer, y: Integer}
     handleInput()
     draw()
 }
 
 Game --> World
 Game --> Level
+Game --> Player
 
 Level --> Box
 Level --> Tile
 Level --> Player
 Level --> Button
+Box --> Tile : "s'interagit avec"
+Box --> Button : "peut activer"
 
 @enduml
