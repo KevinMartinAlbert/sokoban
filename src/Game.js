@@ -1,5 +1,5 @@
-import World from "/src/World.js";
-import Level from "/src/Level.js";
+import World from "sokoban/src/World.js";
+import Level from "sokoban/src/Level.js";
 
 class Game {
     constructor() {
@@ -18,14 +18,14 @@ class Game {
 
     async loadWorld(worldIndex) {
         try {
-            const response = await fetch("/assets/levels/levels.json");
+            const response = await fetch("sokoban/assets/levels/levels.json");
             const data = await response.json();
             const worldKey = worldIndex.toString();
 
             if (data.worlds[worldKey]) {
                 this.world = new World(worldKey, data.worlds[worldKey].levels);
 
-                this.spriteSheet.src = `/assets/sprites/sprite_sheet_world_${worldIndex}.png`;
+                this.spriteSheet.src = `sokoban/assets/sprites/sprite_sheet_world_${worldIndex}.png`;
                 this.spriteSheet.onload = () => {
                     this.loadLevel(this.levelIndex);
                 };
@@ -102,8 +102,7 @@ class Game {
             this.levelIndex = 1;
             this.worldIndex++;
 
-            // Vérifier si le monde suivant existe
-            fetch("/assets/levels/levels.json")
+            fetch("sokoban/assets/levels/levels.json")
                 .then(response => response.json())
                 .then(data => {
                     if (data.worlds[this.worldIndex.toString()]) {
