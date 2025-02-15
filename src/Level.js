@@ -1,7 +1,7 @@
-import Box from "sokoban/src/Box.js";
-import Tile from "sokoban/src/Tile.js";
-import Player from "sokoban/src/Player.js";
-import Button from "sokoban/src/Button.js";
+import Box from "/sokoban/src/Box.js";
+import Tile from "/sokoban/src/Tile.js";
+import Player from "/sokoban/src/Player.js";
+import Button from "/sokoban/src/Button.js";
 
 class Level {
     constructor(data, spriteSheet) {
