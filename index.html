@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./main.css">
+    <title>Sokoban</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">SOKOBAN++</h1>
+            <h2 class="title2">Rules :</h2>
+            <p class="rule">Wooden boxes burn</p>
+            <p class="rule">Metal boxes conduct electricity</p>
+            <p class="rule">Blue buttons accept any box</p>
+            <p class="rule">Yellow buttons require electricity</p>
+            <p class="rule">Orange buttons require a burning box</p>
+            <h2 class="title2">Controls :</h2>
+            <p>Use arrow keys to move</p>
+        </header>
+        <main class="main">
+            <canvas id="gameCanvas">
+                <script src="./src/main.js" type="module"></script>
+            </canvas>
+        </main>
+        <footer class="footer">
+        </footer>
+    </div>
+</body>
+</html>

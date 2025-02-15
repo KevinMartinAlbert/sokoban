@@ -1,0 +1,83 @@
+@startuml sokoban
+
+class Game {
+    canvas: DOMElement
+    ctx: DOMElement
+    tileSize: Integer
+    world: Null
+    levelIndex: Integer
+    worldIndex: Integer
+    spriteSheet: Image
+    running: Boolean
+    loadWorld()
+    loadLevel()
+    init()
+    bindEvents()
+    loop()
+    update()
+    draw()
+    checkVictory()
+    nextLevel()
+}
+class World {
+    name: Integer
+    levels: Integer
+    spriteSheet: String
+    loadSpritesheet()
+}
+class Level {
+    tiles: Array
+    boxes: Array
+    player: Object
+    buttons: Array
+    spriteSheet: Image
+    update()
+    isNearFire()
+    isNearElectricity()
+    draw()
+    canMoveTo()
+    getBoxAt()
+    isCompleted()
+}
+
+class Tile {
+    type: String
+    spriteSheet: Image
+    spriteCoordinates: Object
+    draw()
+}
+class Button {
+    x: Integer
+    y: Integer
+    requiredType: String
+    isPressed()
+}
+class Box {
+    x: Integer
+    y: Integer
+    type: String
+    spriteSheet: Image
+    spriteSheetCoordinates: Object
+    move()
+    updateState()
+    draw()
+}
+
+class Player {
+    x: Integer
+    y: Integer
+    spriteSheet: Image
+    spriteSheetCoordinates: Object
+    handleInput()
+    draw()
+}
+
+Game --> World
+Game --> Level
+
+Level --> Box
+Level --> Tile
+Level --> Player
+Level --> Button
+
+@enduml
